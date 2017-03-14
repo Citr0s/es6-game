@@ -36,8 +36,11 @@ class Transformation {
     }
 
     update(delta) {
-        var force = this.physics.calculateTotalForce();
-        var acceleration = force / this.mass;
+        let force = this.physics.calculateTotalForce();
+        let  acceleration = {
+            x: force.x / this.mass,
+            y: force.y / this.mass
+        };
 
         this.xVelocity += acceleration.x * delta;
         this.yVelocity += acceleration.y * delta;
@@ -82,7 +85,7 @@ class Physics {
         this.forces = {
             "KINETIC_HORIZONTAL": new Force(0, 0),
             "KINETIC_VERTICAL": new Force(0, 0),
-            "GRAVITY": new Force(0, 10)
+            "GRAVITY": new Force(0, 9.8)
         };
     }
 
