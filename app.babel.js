@@ -6,9 +6,9 @@ class Player {
 
     update(delta) {
         if (InputHandler.checkKey("D")) {
-            this.transformation.physics.updateForce(new Force("KINETIC_HORIZONTAL", 0.5, 0));
+            this.transformation.physics.updateForce("KINETIC_HORIZONTAL", new Force(0.5, 0));
         } else {
-            this.transformation.physics.updateForce(new Force("KINETIC_HORIZONTAL", 0, 0));
+            this.transformation.physics.updateForce("KINETIC_HORIZONTAL", new Force(0, 0));
         }
 
         this.transformation.update(delta);
@@ -86,12 +86,8 @@ class Physics {
         };
     }
 
-    updateForce(force) {
-        for (let i = 0; i < this.forces.count; i++) {
-            if (this.forces[i].key === force.key) {
-                this.forces[i] = force;
-            }
-        }
+    updateForce(key, force) {
+        this.forces[key] = force;
     }
 
     calculateTotalForce() {
