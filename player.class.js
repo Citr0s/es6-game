@@ -1,5 +1,8 @@
 import InputHandler from './input-handler.class';
 import Force from './force.class';
+import Canvas from './canvas.class';
+
+let canvas = new Canvas();
 
 class Player {
     constructor(transformation, appearance) {
@@ -20,8 +23,8 @@ class Player {
     draw() {
         this.appearance.draw(this.transformation.x, this.transformation.y);
 
-        if (this.transformation.y + this.appearance.height > canvas.height) {
-            this.transformation.y = canvas.height - this.appearance.height;
+        if (this.transformation.y + this.appearance.height > canvas.canvas.height) {
+            this.transformation.y = canvas.canvas.height - this.appearance.height;
             this.transformation.yVelocity = 0;
         }
     }

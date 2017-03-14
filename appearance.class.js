@@ -1,12 +1,15 @@
+import Canvas from './canvas.class';
+
+var canvas = new Canvas();
+
 class Appearance {
-    constructor(height, width, context) {
+    constructor(height, width) {
         this.height = height;
         this.width = width;
-        this.context = context;
     }
 
     draw(x, y) {
-        this.context.fillRect(x, y, this.width, this.height);
+        canvas.context.fillRect(x, y, this.width, this.height);
     }
 }
 
