@@ -1,6 +1,6 @@
 import Canvas from './canvas.class';
 
-var canvas = new Canvas();
+let canvas = new Canvas();
 
 class Appearance {
     constructor(height, width) {
