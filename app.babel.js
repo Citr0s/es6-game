@@ -1,11 +1,12 @@
-import Player from './player.class';
-import Transformation from './transformation.class';
-import Appearance from './appearance.class';
-import Physics from './physics.class';
-import Canvas from './canvas.class';
+import Player from './src/player.class';
+import Transformation from './src/transformation.class';
+import Appearance from './src/appearance.class';
+import Physics from './src/physics.class';
+
+let canvas = document.getElementById('canvas');
+let context = canvas.getContext('2d');
 
 let time = new Date();
-let canvas = new Canvas();
 let player = new Player(new Transformation(10, 10, new Physics()), new Appearance(50, 50));
 
 function mainLoop() {
@@ -28,7 +29,7 @@ function update() {
 }
 
 function draw() {
-    canvas.context.clearRect(0, 0, canvas.canvas.width, canvas.canvas.height);
+    context.clearRect(0, 0, canvas.width, canvas.height);
     player.draw();
 }
 
