@@ -19,8 +19,8 @@ class Transformation {
         this.xVelocity += acceleration.x * delta;
         this.yVelocity += acceleration.y * delta;
 
-        this.x += this.xVelocity * delta + 0.5 * (-1) * acceleration.x * delta * delta;
-        this.y += this.yVelocity * delta + 0.5 * (-1) * acceleration.y * delta * delta;
+        this.x += this.xVelocity * delta + 0.5 * (-1) * acceleration.x * Math.pow(delta, 2);
+        this.y += this.yVelocity * delta + 0.5 * (-1) * acceleration.y * Math.pow(delta, 2);
     }
 }
 
