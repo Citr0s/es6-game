@@ -4,6 +4,7 @@ import Appearance from './src/appearance.class';
 import Physics from './src/physics.class';
 import InputHandler from './src/input-handler.class';
 import Vector from './src/vector.class';
+import Timer from './src/timer.class'
 
 InputHandler.inititialise();
 
@@ -25,11 +26,7 @@ function mainLoop() {
 requestAnimationFrame(mainLoop);
 
 function update() {
-    let delta = new Date() - time;
-
-    player.update(delta / 1000);
-
-    time = new Date();
+    player.update(Timer.getDeltaTime());
 }
 
 function draw() {
