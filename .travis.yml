@@ -5,3 +5,5 @@ notifications:
 
 script:
   - yarn && gulp
+
+cache: yarn
