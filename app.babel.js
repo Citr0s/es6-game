@@ -2,6 +2,9 @@ import Player from './src/player.class';
 import Transformation from './src/transformation.class';
 import Appearance from './src/appearance.class';
 import Physics from './src/physics.class';
+import InputHandler from './src/input-handler.class';
+
+InputHandler.inititialise();
 
 let canvas = document.getElementById('canvas');
 let context = canvas.getContext('2d');
