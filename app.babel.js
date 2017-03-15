@@ -11,7 +11,6 @@ InputHandler.inititialise();
 let canvas = document.getElementById('canvas');
 let context = canvas.getContext('2d');
 
-let time = new Date();
 let player = new Player(new Transformation(new Physics(), new Vector(10, 10), 10), new Appearance(50, 50));
 
 function mainLoop() {
