@@ -1,6 +1,11 @@
 let pressedCharacter = "";
 
 class InputHandler {
+    static inititialise() {
+        document.addEventListener('keydown', InputHandler.setCharacter);
+        document.addEventListener('keyup', InputHandler.resetCharacter);
+    }
+
     static setCharacter(e) {
         pressedCharacter = e.key;
     }
@@ -11,11 +16,6 @@ class InputHandler {
 
     static checkKey(character) {
         return pressedCharacter.toLowerCase() === character.toLowerCase();
-    }
-
-    static inititialise() {
-        document.addEventListener('keydown', InputHandler.setCharacter);
-        document.addEventListener('keyup', InputHandler.resetCharacter);
     }
 }
 

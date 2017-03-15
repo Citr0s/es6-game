@@ -5,7 +5,7 @@ class Physics {
         this.forces = {
             "KINETIC_HORIZONTAL": new Force(0, 0),
             "KINETIC_VERTICAL": new Force(0, 0),
-            "GRAVITY": new Force(0, 9.8)
+            "GRAVITY": new Force(0, 250)
         };
     }
 
