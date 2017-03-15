@@ -5,8 +5,6 @@ var source      = require('vinyl-source-stream');
 var buffer      = require('vinyl-buffer');
 var uglify      = require('gulp-uglify');
 var sourcemaps  = require('gulp-sourcemaps');
-var livereload  = require('gulp-livereload');
-
 
 gulp.task('build', function () {
     return browserify({entries: 'app.babel.js', debug: true})
@@ -17,12 +15,10 @@ gulp.task('build', function () {
         .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(uglify())
         .pipe(sourcemaps.write('./maps'))
-        .pipe(gulp.dest('./dist'))
-        .pipe(livereload());
+        .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('watch', ['build'], function () {
-    livereload.listen();
     gulp.watch(['./*.js', './src/*.js'], ['build']);
 });
 
