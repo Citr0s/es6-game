@@ -23,3 +23,4 @@ gulp.task('watch', ['build'], function () {
 });
 
 gulp.task('default', ['watch']);
+gulp.task('build-release', ['build']);

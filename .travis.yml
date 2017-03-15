@@ -4,6 +4,6 @@ notifications:
   email: false
 
 script:
-  - yarn && gulp
+  - gulp build-release
 
 cache: yarn
