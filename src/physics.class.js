@@ -1,11 +1,11 @@
-import Force from './force.class';
+import Vector from './vector.class';
 
 class Physics {
     constructor() {
         this.forces = {
-            "KINETIC_HORIZONTAL": new Force(0, 0),
-            "KINETIC_VERTICAL": new Force(0, 0),
-            "GRAVITY": new Force(0, 250)
+            "KINETIC_HORIZONTAL": new Vector(0, 0),
+            "KINETIC_VERTICAL": new Vector(0, 0),
+            "GRAVITY": new Vector(0, 250)
         };
     }
 
@@ -14,11 +14,10 @@ class Physics {
     }
 
     calculateTotalForce() {
-        let totalForce = { x: 0, y: 0 };
+        let totalForce = new Vector(0, 0);
 
         for (let key in this.forces) {
-            totalForce.x += this.forces[key].x;
-            totalForce.y += this.forces[key].y;
+            totalForce.add(this.forces[key]);
         }
 
         return totalForce;
