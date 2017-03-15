@@ -5,7 +5,7 @@ var source      = require('vinyl-source-stream');
 var buffer      = require('vinyl-buffer');
 var uglify      = require('gulp-uglify');
 var sourcemaps  = require('gulp-sourcemaps');
-
+ 
 gulp.task('build', function () {
     return browserify({entries: 'app.babel.js', debug: true})
         .transform("babelify", { presets: ["env"] })
