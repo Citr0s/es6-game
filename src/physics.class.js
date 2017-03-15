@@ -12,7 +12,7 @@ class Physics {
     updateForce(key, force) {
         this.forces[key] = force;
     }
-
+    
     calculateTotalForce() {
         let totalForce = new Vector(0, 0);
 

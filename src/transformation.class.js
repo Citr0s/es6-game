@@ -1,26 +1,23 @@
+import Vector from './vector.class';
+
 class Transformation {
-    constructor(x, y, physics) {
-        this.x = x;
-        this.y = y;
+    constructor(physics, position, mass) {
         this.physics = physics;
 
-        this.xVelocity = 0;
-        this.yVelocity = 0;
-        this.mass = 10;
+        this.position = position;
+        this.velocity = new Vector(0, 0);
+        this.mass = mass;
     }
 
     update(delta) {
         let force = this.physics.calculateTotalForce();
-        let  acceleration = {
-            x: force.x / this.mass,
-            y: force.y / this.mass
-        };
+        let acceleration = new Vector(force.x / this.mass, force.y / this.mass);
+        acceleration.multiply(delta);
 
-        this.xVelocity += acceleration.x * delta;
-        this.yVelocity += acceleration.y * delta;
+        this.velocity.add(acceleration);
 
-        this.x += this.xVelocity * delta + 0.5 * (-1) * acceleration.x * Math.pow(delta, 2);
-        this.y += this.yVelocity * delta + 0.5 * (-1) * acceleration.y * Math.pow(delta, 2);
+        this.position.x += this.velocity.x * delta + 0.5 * (-1) * acceleration.x * Math.pow(delta, 2);
+        this.position.y += this.velocity.y * delta + 0.5 * (-1) * acceleration.y * Math.pow(delta, 2);
     }
 }
 

@@ -27,11 +27,11 @@ class Player {
     }
 
     draw() {
-        this.appearance.draw(this.transformation.x, this.transformation.y);
+        this.appearance.draw(this.transformation.position.x, this.transformation.position.y);
 
-        if (this.transformation.y + this.appearance.height > canvas.height) {
-            this.transformation.y = canvas.height - this.appearance.height;
-            this.transformation.yVelocity = 0;
+        if (this.transformation.position.y + this.appearance.height > canvas.height) {
+            this.transformation.position.y = canvas.height - this.appearance.height;
+            this.transformation.velocity.y = 0;
         }
     }
 }
