@@ -8,5 +8,6 @@ notifications:
 
 script:
   - gulp build-release
+  - gulp test
 
 cache: yarn
