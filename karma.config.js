@@ -4,14 +4,15 @@ module.exports = function(config) {
 	basePath: './',
 	frameworks: ['jasmine'],
 	files: [
-		'./dist/*.js'
+		'./dist/tests/*.js'
 	],
     reporters: ['coverage'],
 	preprocessors: {
-	  './dist/tests/*.js': 'coverage'
+	  './**/*.js': 'coverage'
 	},
     coverageReporter: {
-      type : 'lcovonly',
+      type: 'lcovonly',
+      dir: 'coverage',
       subdir: '.'
     }
   });
