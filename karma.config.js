@@ -6,14 +6,6 @@ module.exports = function(config) {
         files: [
             './dist/tests/app.tests.js'
         ],
-        reporters: ['progress', 'coverage'],
-        preprocessors: {
-            '*.js': 'coverage'
-        },
-        coverageReporter: {
-            type: 'lcovonly',
-            dir: 'coverage',
-            subdir: '.'
-        }
+        reporters: ['progress']
     });
 };
