@@ -1,5 +1,4 @@
-let canvas = document.getElementById('canvas');
-let context = canvas.getContext('2d');
+import Window from './window.class';
 
 class Appearance {
     constructor(height, width) {
@@ -8,7 +7,7 @@ class Appearance {
     }
 
     draw(x, y) {
-        context.fillRect(x, y, this.width, this.height);
+        Window.drawRect(x, y, this.width, this.height);
     }
 }
 
