@@ -8,7 +8,7 @@ module.exports = function(config) {
         ],
         reporters: ['coverage'],
         preprocessors: {
-            './**/*.js': 'coverage'
+            './dist/app.babel.js': 'coverage'
         },
         coverageReporter: {
             type: 'lcovonly',

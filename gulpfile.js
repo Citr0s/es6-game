@@ -11,7 +11,7 @@ var karma = require('karma');
 var karmaParseConfig = require('karma/lib/config').parseConfig;
  
 gulp.task('build', function () {
-    return browserify({entries: 'app.babel.js', debug: true})
+    return browserify({entries: './src/app.babel.js', debug: true})
         .transform("babelify", { presets: ["env"] })
         .bundle()
         .pipe(source('app.babel.js'))
@@ -23,7 +23,7 @@ gulp.task('build', function () {
 });
 
 gulp.task('watch', ['build'], function () {
-    gulp.watch(['./*.js', './src/*.js'], ['build']);
+    gulp.watch(['./src/*.js'], ['build']);
 });
 
 gulp.task('default', ['watch']);
@@ -32,7 +32,7 @@ gulp.task('build-tests', function () {
     return browserify({entries: ['./tests/vector.spec.js', './tests/physics.spec.js'], debug: true})
         .transform("babelify", { presets: ["env"] })
         .bundle()
-        .pipe(source('app.tests.js'))
+        .pipe(source('./app.tests.js'))
         .pipe(buffer())
         .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(uglify())

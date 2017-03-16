@@ -1,12 +1,12 @@
-import Player from './src/player.class';
-import Transformation from './src/transformation.class';
-import Appearance from './src/appearance.class';
-import Physics from './src/physics.class';
-import InputHandler from './src/input-handler.class';
-import Vector from './src/vector.class';
-import Timer from './src/timer.class';
-import Window from './src/window.class';
-import FramesPerSecond from './src/frames-per-second.class';
+import Player from './player.class';
+import Transformation from './transformation.class';
+import Appearance from './appearance.class';
+import Physics from './physics.class';
+import InputHandler from './input-handler.class';
+import Vector from './vector.class';
+import Timer from './timer.class';
+import Window from './window.class';
+import FramesPerSecond from './frames-per-second.class';
 
 InputHandler.inititialise();
 Window.inititialise();
