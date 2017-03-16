@@ -34,7 +34,6 @@ gulp.task('test', function(cb) {
 });
 
 gulp.task('default', ['watch']);
-gulp.task('build-release', ['build']);
 
 function runKarma(configFilePath, options, cb) {
 
