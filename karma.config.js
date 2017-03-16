@@ -4,11 +4,12 @@ module.exports = function(config) {
         basePath: './',
         frameworks: ['jasmine'],
         files: [
-            './dist/tests/*.js'
+            './dist/src/**/*.js',
+            './dist/tests/**/*.js'
         ],
         reporters: ['progress', 'coverage'],
         preprocessors: {
-            './dist/app.babel.js': 'coverage'
+            './dist/*.js': 'coverage'
         },
         coverageReporter: {
             type: 'lcovonly',
