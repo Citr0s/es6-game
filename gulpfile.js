@@ -29,7 +29,10 @@ gulp.task('watch', ['build'], function () {
 gulp.task('default', ['watch']);
 
 gulp.task('build-tests', function () {
-    return browserify({entries: ['./tests/vector.spec.js', './tests/physics.spec.js'], debug: true})
+    return browserify({entries: [
+            './tests/vector.spec.js',
+            './tests/physics.spec.js'
+        ], debug: true})
         .transform("babelify", { presets: ["env"] })
         .bundle()
         .pipe(source('./app.tests.js'))
