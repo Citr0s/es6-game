@@ -10,17 +10,23 @@ class Player {
     }
 
     update(delta) {
+        this.transformation.physics.updateForce("KINETIC_HORIZONTAL", new Vector(0, 0));
+        this.transformation.physics.updateForce("KINETIC_VERTICAL", new Vector(0, 0));
+
         if (InputHandler.checkKey("D")) {
             this.transformation.physics.updateForce("KINETIC_HORIZONTAL", new Vector(500, 0));
-        } else if (InputHandler.checkKey("A")) {
+        }
+
+        if (InputHandler.checkKey("A")) {
             this.transformation.physics.updateForce("KINETIC_HORIZONTAL", new Vector(-500, 0));
-        } else if (InputHandler.checkKey("W")) {
+        }
+
+        if (InputHandler.checkKey("W")) {
             this.transformation.physics.updateForce("KINETIC_VERTICAL", new Vector(0, -500));
-        } else if (InputHandler.checkKey("S")) {
+        }
+
+        if (InputHandler.checkKey("S")) {
             this.transformation.physics.updateForce("KINETIC_VERTICAL", new Vector(0, 500));
-        } else {
-            this.transformation.physics.updateForce("KINETIC_HORIZONTAL", new Vector(0, 0));
-            this.transformation.physics.updateForce("KINETIC_VERTICAL", new Vector(0, 0));
         }
 
         this.transformation.update(delta);

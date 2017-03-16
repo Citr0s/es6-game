@@ -3,7 +3,7 @@ import Vector from './vector.class';
 class Transformation {
     constructor(physics, position, mass) {
         this.physics = physics;
-
+        this.physics.updateForce("GRAVITY", new Vector(0, 9.8 * mass));
         this.position = position;
         this.velocity = new Vector(0, 0);
         this.mass = mass;

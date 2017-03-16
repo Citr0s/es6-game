@@ -12,6 +12,10 @@ class Window {
         this.context.fillRect(x, y, width, height);
     }
 
+    static drawText(x, y, text) {
+        this.context.fillText(text, x, y);
+    }
+
     static refreshScreenBuffer() {
         this.context.clearRect(0, 0, canvas.width, canvas.height);
     }

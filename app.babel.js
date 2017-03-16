@@ -6,15 +6,16 @@ import InputHandler from './src/input-handler.class';
 import Vector from './src/vector.class';
 import Timer from './src/timer.class';
 import Window from './src/window.class';
+import FramesPerSecond from './src/frames-per-second.class';
 
 InputHandler.inititialise();
 Window.inititialise();
 
-let player = new Player(new Transformation(new Physics(), new Vector(10, 10), 10), new Appearance(50, 50));
+let framesPerSecond = new FramesPerSecond();
+
+let player = new Player(new Transformation(new Physics(), new Vector(100, 100), 1), new Appearance(50, 50));
 
 function mainLoop() {
-    console.log("looped");
-
     update();
     draw();
 
@@ -24,11 +25,16 @@ function mainLoop() {
 requestAnimationFrame(mainLoop);
 
 function update() {
-    player.update(Timer.getDeltaTime());
+    let delta = Timer.getDeltaTime();
+
+    framesPerSecond.update(delta);
+    player.update(delta);
 }
 
 function draw() {
     Window.refreshScreenBuffer();
+    Window.drawText(10, 15, 'FPS: ' + framesPerSecond.getFramesPerSecond());
+
     player.draw();
 }
 
