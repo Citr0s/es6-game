@@ -9,4 +9,4 @@ Simple game created in spare time to explore proper game developement standards.
 
 #### Advaned
 ##### `gulp build` in root folder to build only
-##### `gulp test` in root folder to run tests
+##### `gulp test` in root folder to build and run tests

@@ -26,14 +26,26 @@ gulp.task('watch', ['build'], function () {
     gulp.watch(['./*.js', './src/*.js'], ['build']);
 });
 
-gulp.task('test', function(cb) {
+gulp.task('default', ['watch']);
+
+gulp.task('build-tests', function () {
+    return browserify({entries: ['./tests/vector.spec.js', './tests/physics.spec.js'], debug: true})
+        .transform("babelify", { presets: ["env"] })
+        .bundle()
+        .pipe(source('app.tests.js'))
+        .pipe(buffer())
+        .pipe(sourcemaps.init({loadMaps: true}))
+        .pipe(uglify())
+        .pipe(sourcemaps.write('./maps'))
+        .pipe(gulp.dest('./dist/tests'));
+});
+
+gulp.task('test', ['build-tests'], function(cb) {
     runKarma('karma.config.js', {
         autoWatch: false,
         singleRun: true
     }, cb);
 });
-
-gulp.task('default', ['watch']);
 
 function runKarma(configFilePath, options, cb) {
 
