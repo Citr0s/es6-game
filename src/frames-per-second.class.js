@@ -2,7 +2,7 @@ class FramesPerSecond {
     constructor() {
         this.frameCount = 0;
         this.deltaCount = 0;
-        this.framesPerSecond = 0;
+        this.framesCurrentSecond = 0;
     }
 
     update(delta) {
@@ -10,15 +10,15 @@ class FramesPerSecond {
         this.deltaCount += delta;
 
         if (this.deltaCount >= 1) {
-            this.framesPerSecond = this.frameCount;
+            this.framesCurrentSecond = this.frameCount;
 
             this.deltaCount = 0;
             this.frameCount = 0;
         }
     }
 
-    getFramesPerSecond() {
-        return this.framesPerSecond;
+    getFrameCount() {
+        return this.framesCurrentSecond;
     }
 }
 

@@ -33,7 +33,7 @@ function update() {
 
 function draw() {
     Window.refreshScreenBuffer();
-    Window.drawText(10, 15, 'FPS: ' + framesPerSecond.getFramesPerSecond());
+    Window.drawText(10, 15, 'FPS: ' + framesPerSecond.getFrameCount());
 
     player.draw();
 }
