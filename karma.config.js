@@ -6,7 +6,7 @@ module.exports = function(config) {
         files: [
             './dist/tests/*.js'
         ],
-        reporters: ['coverage'],
+        reporters: ['progress', 'coverage'],
         preprocessors: {
             './dist/app.babel.js': 'coverage'
         },
