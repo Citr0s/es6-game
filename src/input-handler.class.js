@@ -7,11 +7,17 @@ class InputHandler {
     }
 
     static setCharacter(e) {
+        if(pressedCharacter.indexOf(e.key.toLowerCase()) > -1)
+            return;
+
         pressedCharacter.push(e.key.toLowerCase());
     }
 
     static resetCharacter(e) {
-        pressedCharacter.pop(e.key.toLowerCase());
+        if(pressedCharacter.indexOf(e.key.toLowerCase()) === -1)
+            return;
+
+        pressedCharacter.splice(pressedCharacter.indexOf(e.key.toLowerCase()), 1);
     }
 
     static checkKey(character) {
