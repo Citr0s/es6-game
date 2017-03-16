@@ -1,5 +1,6 @@
 import InputHandler from './input-handler.class';
 import Vector from './vector.class';
+import InputMappings from './input-mappings.class';
 
 let canvas = document.getElementById('canvas');
 
@@ -13,19 +14,19 @@ class Player {
         this.transformation.physics.updateForce("KINETIC_HORIZONTAL", new Vector(0, 0));
         this.transformation.physics.updateForce("KINETIC_VERTICAL", new Vector(0, 0));
 
-        if (InputHandler.checkKey("D")) {
+        if (InputHandler.checkKey(InputMappings.MOVE_RIGHT)) {
             this.transformation.physics.updateForce("KINETIC_HORIZONTAL", new Vector(500, 0));
         }
 
-        if (InputHandler.checkKey("A")) {
+        if (InputHandler.checkKey(InputMappings.MOVE_LEFT)) {
             this.transformation.physics.updateForce("KINETIC_HORIZONTAL", new Vector(-500, 0));
         }
 
-        if (InputHandler.checkKey("W")) {
+        if (InputHandler.checkKey(InputMappings.MOVE_UP)) {
             this.transformation.physics.updateForce("KINETIC_VERTICAL", new Vector(0, -500));
         }
 
-        if (InputHandler.checkKey("S")) {
+        if (InputHandler.checkKey(InputMappings.MOVE_DOWN)) {
             this.transformation.physics.updateForce("KINETIC_VERTICAL", new Vector(0, 500));
         }
 
