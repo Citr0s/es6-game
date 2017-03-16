@@ -1,5 +1,5 @@
 ## ES6 Game
-<a href="https://travis-ci.org/miloszmd/es6-game"><img src="https://travis-ci.org/miloszmd/es6-game.svg?branch=master"></a>
+<a href="https://travis-ci.org/miloszmd/es6-game"><img src="https://travis-ci.org/miloszmd/es6-game.svg?branch=master"></a><br>
 Simple game created in spare time to explore proper game developement standards.
 
 #### To Run
