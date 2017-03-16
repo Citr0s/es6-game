@@ -11,7 +11,8 @@ module.exports = function(config) {
 	  './dist/*.js': 'coverage'
 	},
     coverageReporter: {
-      type : 'lcovonly'
+      type : 'lcovonly',
+      subdir: '.'
     }
   });
 };
