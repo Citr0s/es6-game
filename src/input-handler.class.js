@@ -1,4 +1,4 @@
-let pressedCharacter = "";
+let pressedCharacter = [];
 
 class InputHandler {
     static inititialise() {
@@ -7,15 +7,15 @@ class InputHandler {
     }
 
     static setCharacter(e) {
-        pressedCharacter = e.key;
+        pressedCharacter.push(e.key.toLowerCase());
     }
 
-    static resetCharacter() {
-        pressedCharacter = "";
+    static resetCharacter(e) {
+        pressedCharacter.pop(e.key.toLowerCase());
     }
 
     static checkKey(character) {
-        return pressedCharacter.toLowerCase() === character.toLowerCase();
+        return pressedCharacter.includes(character.toLowerCase());
     }
 }
 

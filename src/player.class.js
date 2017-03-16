@@ -42,7 +42,7 @@ class Player {
             this.transformation.position.y = 0;
             this.transformation.velocity.y = 0;
         }
-        
+
         if (this.transformation.position.x + this.appearance.width > canvas.width) {
             this.transformation.position.x = canvas.width - this.appearance.width;
             this.transformation.velocity.x = 0;
