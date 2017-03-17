@@ -1,9 +1,4 @@
 var gulp = require('gulp');
-var browserify = require('browserify');
-var babelify = require('babelify');
-var source = require('vinyl-source-stream');
-var buffer = require('vinyl-buffer');
-var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
 var gutil = require('gulp-util');
 var path = require('path');
@@ -23,7 +18,7 @@ gulp.task('build', function () {
 });
 
 gulp.task('watch', ['build'], function () {
-    gulp.watch(['./src/*.js'], ['build']);
+    gulp.watch(['./src/**/*.ts'], ['build']);
 });
 
 gulp.task('default', ['watch']);
