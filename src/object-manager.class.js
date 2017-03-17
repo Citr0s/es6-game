@@ -15,10 +15,11 @@ class ObjectManager {
     }
 
     update(delta) {
-        CollisionHelper.collideWithCanvasBoundaries(this.player, canvas);
-        CollisionHelper.collideWithCanvasBoundaries(this.box, canvas);
         this.player.update(delta);
         this.box.update(delta);
+        CollisionHelper.collideWithCanvasBoundaries(this.player, canvas);
+        CollisionHelper.collideWithCanvasBoundaries(this.box, canvas);
+        CollisionHelper.collide(this.player, this.box);
     }
 
     draw() {

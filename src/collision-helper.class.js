@@ -1,3 +1,5 @@
+import Vector from './vector.class';
+
 class CollisionHelper {
     constructor() {
     }
@@ -9,7 +11,7 @@ class CollisionHelper {
         }
         else if (object.transformation.position.y < 0) {
             object.transformation.position.y = 0;
-            object.transformation.velocity.y = 0
+            object.transformation.velocity.y = 0;
         }
 
         if (object.transformation.position.x + object.appearance.width > boundaries.width) {
@@ -19,6 +21,16 @@ class CollisionHelper {
         else if (object.transformation.position.x < 0) {
             object.transformation.position.x = 0;
             object.transformation.velocity.x = 0;
+        }
+    }
+
+    static collide(player, box) {
+        if (player.transformation.position.y < box.transformation.position.y + box.appearance.height
+            && player.transformation.position.y + player.appearance.height > box.transformation.position.y
+            && player.transformation.position.x < box.transformation.position.x + box.appearance.width
+            && player.transformation.position.x + player.appearance.width > box.transformation.position.x) {
+
+            player.transformation.velocity = new Vector(0, 0);
         }
     }
 }
