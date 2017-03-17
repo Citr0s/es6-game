@@ -1,30 +1,33 @@
-import InputHandler from './input-handler.class';
-import Vector from './vector.class';
-import InputMappings from './input-mappings.class';
+/// <reference path="./InputHandler"/>
+/// <reference path="./Vector"/>
+/// <reference path="./InputMappings"/>
 
 class Player {
-    constructor(transformation, appearance) {
+    public transformation: Transformation;
+    public appearance: Appearance;
+    
+    constructor(transformation:Transformation, appearance:Appearance) {
         this.transformation = transformation;
         this.appearance = appearance;
     }
 
-    update(delta) {
+    update(delta:number) {
         this.transformation.physics.updateForce("KINETIC_HORIZONTAL", new Vector(0, 0));
         this.transformation.physics.updateForce("KINETIC_VERTICAL", new Vector(0, 0));
 
-        if (InputHandler.checkKey(InputMappings.MOVE_RIGHT)) {
+        if (InputHandler.checkKey(InputMappings.MOVE_RIGHT())) {
             this.transformation.physics.updateForce("KINETIC_HORIZONTAL", new Vector(500, 0));
         }
 
-        if (InputHandler.checkKey(InputMappings.MOVE_LEFT)) {
+        if (InputHandler.checkKey(InputMappings.MOVE_LEFT())) {
             this.transformation.physics.updateForce("KINETIC_HORIZONTAL", new Vector(-500, 0));
         }
 
-        if (InputHandler.checkKey(InputMappings.MOVE_UP)) {
+        if (InputHandler.checkKey(InputMappings.MOVE_UP())) {
             this.transformation.physics.updateForce("KINETIC_VERTICAL", new Vector(0, -500));
         }
 
-        if (InputHandler.checkKey(InputMappings.MOVE_DOWN)) {
+        if (InputHandler.checkKey(InputMappings.MOVE_DOWN())) {
             this.transformation.physics.updateForce("KINETIC_VERTICAL", new Vector(0, 500));
         }
 
@@ -35,5 +38,3 @@ class Player {
         this.appearance.draw(this.transformation.position.x, this.transformation.position.y);
     }
 }
-
-export default Player;

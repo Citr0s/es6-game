@@ -4,7 +4,7 @@ module.exports = function(config) {
         basePath: './',
         frameworks: ['jasmine'],
         files: [
-            './dist/tests/app.tests.js'
+            './dist/app.tests.js'
         ],
         reporters: ['progress']
     });

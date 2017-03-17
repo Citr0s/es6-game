@@ -4,21 +4,19 @@ const moveUp = "W";
 const moveDown = "S";
 
 class InputMappings {
-    static get MOVE_LEFT() {
+    static MOVE_LEFT() {
         return moveLeft;
     }
 
-    static get MOVE_RIGHT() {
+    static MOVE_RIGHT() {
         return moveRight;
     }
 
-    static get MOVE_UP() {
+    static MOVE_UP() {
         return moveUp;
     }
 
-    static get MOVE_DOWN() {
+    static MOVE_DOWN() {
         return moveDown;
     }
 }
-
-export default InputMappings;

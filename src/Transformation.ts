@@ -1,7 +1,13 @@
-import Vector from './vector.class';
+/// <reference path="./Vector"/>
+/// <reference path="./Physics"/>
 
 class Transformation {
-    constructor(physics, position, mass) {
+    public physics: Physics;
+    public position: Vector;
+    public velocity: Vector;
+    private mass: number;
+
+    constructor(physics:Physics, position:Vector, mass:number) {
         this.physics = physics;
         this.physics.updateForce("GRAVITY", new Vector(0, 98 * mass));
         this.position = position;
@@ -9,7 +15,7 @@ class Transformation {
         this.mass = mass;
     }
 
-    update(delta) {
+    update(delta:number) {
         let force = this.physics.calculateTotalForce();
         let acceleration = new Vector(force.x / this.mass, force.y / this.mass);
         acceleration.multiply(delta);
@@ -20,5 +26,3 @@ class Transformation {
         this.position.y += this.velocity.y * delta + 0.5 * acceleration.y * Math.pow(delta, 2);
     }
 }
-
-export default Transformation;

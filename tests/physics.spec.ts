@@ -1,5 +1,4 @@
-import Physics from '../src/physics.class';
-import Vector from '../src/vector.class';
+/// <reference path="../src/Physics"/>
 
 describe('Physics', function() {
 

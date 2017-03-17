@@ -1,4 +1,4 @@
-import Vector from '../src/vector.class';
+/// <reference path="../src/Vector"/>
 
 describe('Vector', function() {
 

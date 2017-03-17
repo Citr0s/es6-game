@@ -9,16 +9,16 @@ var gutil = require('gulp-util');
 var path = require('path');
 var karma = require('karma');
 var karmaParseConfig = require('karma/lib/config').parseConfig;
+var ts = require('gulp-typescript');
  
 gulp.task('build', function () {
-    return browserify({entries: './src/app.babel.js', debug: true})
-        .transform("babelify", { presets: ["env"] })
-        .bundle()
-        .pipe(source('app.babel.js'))
-        .pipe(buffer())
-        .pipe(sourcemaps.init({loadMaps: true}))
-        .pipe(uglify())
-        .pipe(sourcemaps.write('./maps'))
+    return gulp.src('./src/**/*.ts')
+        .pipe(sourcemaps.init())
+        .pipe(ts({
+            noImplicitAny: true,
+            out: 'app.js'
+        }))
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest('./dist'));
 });
 
@@ -29,18 +29,14 @@ gulp.task('watch', ['build'], function () {
 gulp.task('default', ['watch']);
 
 gulp.task('build-tests', function () {
-    return browserify({entries: [
-            './tests/vector.spec.js',
-            './tests/physics.spec.js'
-        ], debug: true})
-        .transform("babelify", { presets: ["env"] })
-        .bundle()
-        .pipe(source('./app.tests.js'))
-        .pipe(buffer())
-        .pipe(sourcemaps.init({loadMaps: true}))
-        .pipe(uglify())
-        .pipe(sourcemaps.write('./maps'))
-        .pipe(gulp.dest('./dist/tests'));
+    return gulp.src('./tests/**/*.ts')
+        .pipe(sourcemaps.init())
+        .pipe(ts({
+            noImplicitAny: true,
+            out: 'app.tests.js'
+        }))
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('test', ['build-tests'], function(cb) {
