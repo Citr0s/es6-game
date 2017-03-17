@@ -2,8 +2,6 @@ import InputHandler from './input-handler.class';
 import Vector from './vector.class';
 import InputMappings from './input-mappings.class';
 
-let canvas = document.getElementById('canvas');
-
 class Player {
     constructor(transformation, appearance) {
         this.transformation = transformation;
@@ -32,26 +30,9 @@ class Player {
 
         this.transformation.update(delta);
     }
+
     draw() {
         this.appearance.draw(this.transformation.position.x, this.transformation.position.y);
-
-        if (this.transformation.position.y + this.appearance.height > canvas.height) {
-            this.transformation.position.y = canvas.height - this.appearance.height;
-            this.transformation.velocity.y = 0;
-        }
-        else if (this.transformation.position.y < 0) {
-            this.transformation.position.y = 0;
-            this.transformation.velocity.y = 0;
-        }
-
-        if (this.transformation.position.x + this.appearance.width > canvas.width) {
-            this.transformation.position.x = canvas.width - this.appearance.width;
-            this.transformation.velocity.x = 0;
-        }
-        else if (this.transformation.position.x < 0) {
-            this.transformation.position.x = 0;
-            this.transformation.velocity.x = 0;
-        }
     }
 }
 
