@@ -6,7 +6,7 @@ class Renderer {
     static inititialise() {
         this.canvas = <HTMLCanvasElement>document.getElementById('canvas');
         this.context = this.canvas.getContext('2d');
-        this.tick = new Date().getTime();
+        this.tick = 0;
     }
 
     static draw(x:number, y:number) {
