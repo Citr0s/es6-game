@@ -2,7 +2,7 @@
 /// <reference path="./Vector"/>
 /// <reference path="./InputMappings"/>
 
-class Player {
+class Player implements Entity{
     public transformation: Transformation;
     public appearance: Appearance;
     

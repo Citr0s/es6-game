@@ -1,7 +1,7 @@
 /// <reference path="./Transformation"/>
 /// <reference path="./Appearance"/>
 
-class SceneObject {
+class SceneObject implements Entity {
     public transformation: Transformation;
     public appearance: Appearance;
 
@@ -10,11 +10,11 @@ class SceneObject {
         this.appearance = appearance;
     }
 
-    update(delta:number) {
+    update(delta:number):void {
         this.transformation.update(delta);
     }
 
-    draw() {
+    draw():void {
         this.appearance.draw(this.transformation.position.x, this.transformation.position.y);
     }
 }
