@@ -8,6 +8,7 @@
 /// <reference path="./Vector"/>
 /// <reference path="./CollisionHelper"/>
 /// <reference path="./SceneObject"/>
+/// <reference path="Object/Models/SpriteData.ts"/>
 
 let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById('canvas');
 
@@ -16,7 +17,18 @@ class ObjectManager {
     private box: SceneObject;
 
     constructor() {
-        this.player = new Player(new Transformation(new Physics(), new Vector(100, 100), 1), new SpriteAppearance(new Sprite(new Picture("./assets/sampleAsset.png"), 65, 65), 50, 50));
+        var spriteData: SpriteData = {
+            picture: new Picture("./assets/sampleAsset.png"),
+            height: 65,
+            width: 65,
+            direction: 0,
+            animationCycle: 1,
+            currentAnimationTick: 0,
+            currentFrame: 0,
+            frameCount: 8
+        };
+
+        this.player = new Player(new Transformation(new Physics(), new Vector(100, 100), 1), new SpriteAppearance(new Sprite(spriteData), 50, 50));
         this.box = new SceneObject(new Transformation(new Physics(), new Vector(canvas.width / 2, canvas.height - 150), 1), new Appearance(150, 150));
     }
 

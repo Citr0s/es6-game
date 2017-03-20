@@ -10,15 +10,15 @@ class Sprite {
     private currentAnimationTick: number;
     private frameCount: number;
 
-    constructor(picture: Picture, height: number, width: number) {
-        this.picture = picture;
-        this.height = height;
-        this.width = width;
-        this.direction = 0;
-        this.animationCycle = 1;
-        this.currentAnimationTick = 0;
-        this.currentFrame = 0;
-        this.frameCount = 8;
+    constructor(spriteData: SpriteData) {
+        this.picture = spriteData.picture;
+        this.height = spriteData.height;
+        this.width = spriteData.width;
+        this.direction = spriteData.direction;
+        this.animationCycle = spriteData.animationCycle;
+        this.currentAnimationTick = spriteData.currentAnimationTick;
+        this.currentFrame = spriteData.currentFrame;
+        this.frameCount = spriteData.frameCount;
     }
 
     update(delta: number) {
