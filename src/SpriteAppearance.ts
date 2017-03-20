@@ -18,7 +18,6 @@ class SpriteAppearance implements IAppearance {
     }
 
     draw(x: number, y: number): void {
-        Renderer.strokeRect(x, y, this.width, this.height);
         Renderer.drawSprite(x, y, this.width, this.height, 65, 65, this._sprite.picture, this._sprite.direction, this._sprite.currentFrame);
     }
 }

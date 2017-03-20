@@ -3,12 +3,13 @@
 /// <reference path="./Renderer"/>
 /// <reference path="./FramesPerSecond"/>
 /// <reference path="./ObjectManager"/>
+///<reference path="Helpers/Debugger.ts"/>
 
 InputHandler.inititialise();
 Renderer.inititialise();
 
+let debugging = new Debugger();
 let framesPerSecond = new FramesPerSecond();
-
 let objectManager = new ObjectManager();
 
 function mainLoop() {
@@ -22,7 +23,7 @@ requestAnimationFrame(mainLoop);
 
 function update() {
     let delta = Timer.getDeltaTime();
-
+    debugging.update();
     framesPerSecond.update(delta);
     objectManager.update(delta);
 }

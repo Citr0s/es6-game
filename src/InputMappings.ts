@@ -2,6 +2,7 @@ const moveLeft = "A";
 const moveRight = "D";
 const moveUp = "W";
 const moveDown = "S";
+const toggleDebug = "P";
 
 class InputMappings {
     static MOVE_LEFT() {
@@ -18,5 +19,9 @@ class InputMappings {
 
     static MOVE_DOWN() {
         return moveDown;
+    }
+
+    static TOGGLE_DEBUG() {
+        return toggleDebug;
     }
 }
