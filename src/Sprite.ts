@@ -29,7 +29,7 @@ class Sprite {
             this.currentFrame++;
         }
 
-        if (this.currentFrame >= 8) {
+        if (this.currentFrame >= this.frameCount) {
             this.currentFrame = 0;
         }
 
