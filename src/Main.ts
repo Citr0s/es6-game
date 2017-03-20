@@ -23,7 +23,7 @@ requestAnimationFrame(mainLoop);
 
 function update() {
     let delta = Timer.getDeltaTime();
-    debugging.update();
+    debugging.update(delta);
     framesPerSecond.update(delta);
     objectManager.update(delta);
 }

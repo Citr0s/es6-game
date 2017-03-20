@@ -18,7 +18,7 @@ class Renderer {
         this.context.strokeRect(x, y, width, height);
     }
 
-    static strokeRect(x: number, y: number, width: number, height: number, color: string) {
+    static strokeRectWithColor(x: number, y: number, width: number, height: number, color: string) {
         this.context.strokeStyle = color;
         this.context.strokeRect(x, y, width, height);
     }
@@ -35,7 +35,7 @@ class Renderer {
     }
 
     static drawDebugInfo(x: number, y: number, width: number, height: number) {
-        this.strokeRect(x, y, width, height, "#FF0000");
+        this.strokeRectWithColor(x, y, width, height, "#FF0000");
         this.drawText(x, y - 20, "X: " + Math.round(x * 100) / 100);
         this.drawText(x, y - 10, "Y: " + Math.round(y * 100) / 100);
     }
