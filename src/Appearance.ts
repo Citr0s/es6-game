@@ -22,8 +22,4 @@ class Appearance implements IAppearance {
     drawBorder(x: number, y: number) {
         Renderer.strokeRect(x, y, this.width, this.height);
     }
-
-    drawSprite(x: number, y: number, spriteWidth: number, spriteHeight: number, spritePath: string, direction: number) {
-        Renderer.drawSprite(x, y, this.width, this.height, spriteWidth, spriteHeight, new Picture(spritePath), direction);
-    }
 }

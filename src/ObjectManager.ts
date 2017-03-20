@@ -16,7 +16,7 @@ class ObjectManager {
     private box: SceneObject;
 
     constructor() {
-        this.player = new Player(new Transformation(new Physics(), new Vector(100, 100), 1), new SpriteAppearance(new Sprite(new Picture("./assets/sampleAsset.png")), 50, 50));
+        this.player = new Player(new Transformation(new Physics(), new Vector(100, 100), 1), new SpriteAppearance(new Sprite(new Picture("./assets/sampleAsset.png"), 65, 65), 50, 50));
         this.box = new SceneObject(new Transformation(new Physics(), new Vector(canvas.width / 2, canvas.height - 150), 1), new Appearance(150, 150));
     }
 
