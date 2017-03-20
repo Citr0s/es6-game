@@ -1,7 +1,7 @@
 interface Entity {
     transformation: Transformation;
-    appearance: Appearance;
+    appearance: IAppearance;
 
-    update(delta:number):void;
-    draw():void;
+    update(delta: number): void;
+    draw(): void;
 }

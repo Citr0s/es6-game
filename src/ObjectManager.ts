@@ -1,23 +1,26 @@
 /// <reference path="./Player"/>
 /// <reference path="./Transformation"/>
 /// <reference path="./Appearance"/>
+/// <reference path="./SpriteAppearance"/>
+/// <reference path="./Helpers/Picture"/>
+/// <reference path="./Sprite"/>
 /// <reference path="./Physics"/>
 /// <reference path="./Vector"/>
 /// <reference path="./CollisionHelper"/>
 /// <reference path="./SceneObject"/>
 
-let canvas:HTMLCanvasElement = <HTMLCanvasElement>document.getElementById('canvas');
+let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById('canvas');
 
 class ObjectManager {
     private player: Player;
     private box: SceneObject;
 
     constructor() {
-        this.player = new Player(new Transformation(new Physics(), new Vector(100, 100), 1), new Appearance(50, 50));
+        this.player = new Player(new Transformation(new Physics(), new Vector(100, 100), 1), new SpriteAppearance(new Sprite(new Picture("./assets/sampleAsset.png")), 50, 50));
         this.box = new SceneObject(new Transformation(new Physics(), new Vector(canvas.width / 2, canvas.height - 150), 1), new Appearance(150, 150));
     }
 
-    update(delta:number) {
+    update(delta: number) {
         this.player.update(delta);
         this.box.update(delta);
         CollisionHelper.collideWithCanvasBoundaries(this.player, canvas);
