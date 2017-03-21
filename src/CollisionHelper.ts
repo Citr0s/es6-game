@@ -23,9 +23,8 @@ class CollisionHelper {
 
     static collide(entityOne: Entity, entityTwo: Entity) {
         if (this.areColliding(entityOne, entityTwo)) {
-
-            let entityOneInitialVelocity = entityOne.transformation.velocity;
-            let entityTwoInitialVelocity = entityTwo.transformation.velocity;
+            let entityOneInitialVelocity = entityOne.transformation.initialVelocity;
+            let entityTwoInitialVelocity = entityTwo.transformation.initialVelocity;
             let entityOneMass = entityOne.transformation.mass;
             let entityTwoMass = entityTwo.transformation.mass;
 

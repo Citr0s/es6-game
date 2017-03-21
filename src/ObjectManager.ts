@@ -26,21 +26,21 @@ class ObjectManager {
         };
 
         this.entities.push(new Player(new Transformation(new Physics(), new Vector(100, 100), 1), new SpriteAppearance(new Sprite(spriteData), 50, 50)));
-        this.entities.push(new SceneObject(new Transformation(new Physics(), new Vector(canvas.width / 2, canvas.height - 150), 1), new Appearance(150, 150)));
-        this.entities.push(new SceneObject(new Transformation(new Physics(), new Vector(canvas.width / 2 - 50, canvas.height - 450), 1), new Appearance(150, 150)));
+        this.entities.push(new SceneObject(new Transformation(new Physics(), new Vector(canvas.width / 2, canvas.height - 150), 100), new Appearance(150, 150)));
+        this.entities.push(new SceneObject(new Transformation(new Physics(), new Vector(canvas.width / 2 - 50, canvas.height - 450), 10), new Appearance(150, 150)));
     }
 
     update(delta: number) {
         for (let key in this.entities) {
-            this.entities[key].update(delta);
-            CollisionHelper.collideWithCanvasBoundaries(this.entities[key], canvas);
-
             for (let i = 0; i < this.entities.length; i++) {
                 if (i === parseInt(key))
                     continue;
 
                 CollisionHelper.collide(this.entities[key], this.entities[i]);
             }
+
+            CollisionHelper.collideWithCanvasBoundaries(this.entities[key], canvas);
+            this.entities[key].update(delta);
         }
     }
 

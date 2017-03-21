@@ -4,6 +4,7 @@
 class Transformation {
     public physics: Physics;
     public position: Vector;
+    public initialVelocity: Vector;
     public velocity: Vector;
     public mass: number;
 
@@ -11,6 +12,7 @@ class Transformation {
         this.physics = physics;
         this.physics.updateForce("GRAVITY", new Vector(0, 98 * mass));
         this.position = position;
+        this.initialVelocity = new Vector(0, 0);
         this.velocity = new Vector(0, 0);
         this.mass = mass;
     }
@@ -24,5 +26,7 @@ class Transformation {
 
         this.position.x += this.velocity.x * delta + 0.5 * acceleration.x * Math.pow(delta, 2);
         this.position.y += this.velocity.y * delta + 0.5 * acceleration.y * Math.pow(delta, 2);
+
+        this.initialVelocity = this.velocity;
     }
 }
