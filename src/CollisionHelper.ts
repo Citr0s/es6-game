@@ -2,9 +2,11 @@
 
 class CollisionHelper {
     static collideWithCanvasBoundaries(object: Entity, boundaries: HTMLCanvasElement) {
+        object.isColliding = false;
         if (object.transformation.position.y + object.appearance.height > boundaries.height) {
             object.transformation.position.y = boundaries.height - object.appearance.height;
             object.transformation.velocity.y = 0;
+            object.isColliding = true;
         }
         else if (object.transformation.position.y < 0) {
             object.transformation.position.y = 0;

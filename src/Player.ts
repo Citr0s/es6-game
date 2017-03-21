@@ -5,10 +5,12 @@
 class Player implements Entity {
     public transformation: Transformation;
     public appearance: IAppearance;
+    public isColliding: boolean;
 
     constructor(transformation: Transformation, appearance: IAppearance) {
         this.transformation = transformation;
         this.appearance = appearance;
+        this.isColliding = false;
     }
 
     update(delta: number) {
@@ -23,8 +25,8 @@ class Player implements Entity {
             this.transformation.physics.updateForce("KINETIC_HORIZONTAL", new Vector(-500, 0));
         }
 
-        if (InputHandler.checkKey(InputMappings.MOVE_UP())) {
-            this.transformation.physics.updateForce("KINETIC_VERTICAL", new Vector(0, -500));
+        if (InputHandler.checkKey(InputMappings.MOVE_UP()) && this.isColliding) {
+            this.transformation.physics.updateForce("KINETIC_VERTICAL", new Vector(0, -7500));
         }
 
         if (InputHandler.checkKey(InputMappings.MOVE_DOWN())) {

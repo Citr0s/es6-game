@@ -4,10 +4,12 @@
 class SceneObject implements Entity {
     public transformation: Transformation;
     public appearance: Appearance;
+    public isColliding: boolean;
 
     constructor(transformation: Transformation, appearance: Appearance) {
         this.transformation = transformation;
         this.appearance = appearance;
+        this.isColliding = false;
     }
 
     update(delta: number): void {

@@ -38,7 +38,7 @@ class ObjectManager {
 
                 CollisionHelper.collide(this.entities[key], this.entities[i]);
             }
-
+            
             CollisionHelper.collideWithCanvasBoundaries(this.entities[key], canvas);
             this.entities[key].update(delta);
         }
