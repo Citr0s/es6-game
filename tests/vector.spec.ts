@@ -1,15 +1,15 @@
 /// <reference path="../src/Vector"/>
 
-describe('Vector', function() {
+describe('Vector', function () {
 
-   it('should initialise x and y correctly', function() {
-       let subject = new Vector(1, 2);
+    it('should initialise x and y correctly', function () {
+        let subject = new Vector(1, 2);
 
-       expect(subject.x).toBe(1);
-       expect(subject.y).toBe(2);
-   });
+        expect(subject.x).toBe(1);
+        expect(subject.y).toBe(2);
+    });
 
-    it('should add x and y vectors together correctly', function() {
+    it('should add x and y vectors together correctly', function () {
         let subject = new Vector(1, 2);
 
         subject.add(new Vector(1, 2));
@@ -18,7 +18,7 @@ describe('Vector', function() {
         expect(subject.y).toBe(4);
     });
 
-    it('should multiply x and y vectors together correctly', function() {
+    it('should multiply x and y vectors together correctly', function () {
         let subject = new Vector(2, 3);
 
         subject.multiply(2);

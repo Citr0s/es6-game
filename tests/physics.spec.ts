@@ -1,29 +1,29 @@
 /// <reference path="../src/Physics"/>
 
-describe('Physics', function() {
+describe('Physics', function () {
 
-   it('should initialise kinetic horizontal force correctly', function() {
-       let subject = new Physics();
+    it('should initialise kinetic horizontal force correctly', function () {
+        let subject = new Physics();
 
-       expect(subject.forces['KINETIC_HORIZONTAL'].x).toBe(0);
-       expect(subject.forces['KINETIC_HORIZONTAL'].y).toBe(0);
-   });
+        expect(subject.forces['KINETIC_HORIZONTAL'].x).toBe(0);
+        expect(subject.forces['KINETIC_HORIZONTAL'].y).toBe(0);
+    });
 
-    it('should initialise kinetic vertical force correctly', function() {
+    it('should initialise kinetic vertical force correctly', function () {
         let subject = new Physics();
 
         expect(subject.forces['KINETIC_VERTICAL'].x).toBe(0);
         expect(subject.forces['KINETIC_VERTICAL'].y).toBe(0);
     });
 
-    it('should initialise gravity force correctly', function() {
+    it('should initialise gravity force correctly', function () {
         let subject = new Physics();
 
         expect(subject.forces['GRAVITY'].x).toBe(0);
         expect(subject.forces['GRAVITY'].y).toBe(9.8);
     });
 
-    it('should update force correctly', function() {
+    it('should update force correctly', function () {
         let subject = new Physics();
 
         subject.updateForce("KINETIC_HORIZONTAL", new Vector(1, 2));
@@ -32,7 +32,7 @@ describe('Physics', function() {
         expect(subject.forces['KINETIC_HORIZONTAL'].y).toBe(2);
     });
 
-    it('should calculate total force correctly', function() {
+    it('should calculate total force correctly', function () {
         let subject = new Physics();
 
         subject.updateForce("KINETIC_HORIZONTAL", new Vector(1, 2));
