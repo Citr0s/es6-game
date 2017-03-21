@@ -21,13 +21,24 @@ class CollisionHelper {
         }
     }
 
-    static collide(player: Entity, box: Entity) {
-        if (player.transformation.position.y < box.transformation.position.y + box.appearance.height
-            && player.transformation.position.y + player.appearance.height > box.transformation.position.y
-            && player.transformation.position.x < box.transformation.position.x + box.appearance.width
-            && player.transformation.position.x + player.appearance.width > box.transformation.position.x) {
+    static collide(entityOne: Entity, entityTwo: Entity) {
+        if (this.areColliding(entityOne, entityTwo)) {
 
-            player.transformation.velocity = new Vector(0, 0);
+            let entityOneInitialVelocity = entityOne.transformation.velocity;
+            let entityTwoInitialVelocity = entityTwo.transformation.velocity;
+            let entityOneMass = entityOne.transformation.mass;
+            let entityTwoMass = entityTwo.transformation.mass;
+
+            entityOne.transformation.velocity.x = ((entityOneMass - entityTwoMass) / (entityOneMass + entityTwoMass)) * entityOneInitialVelocity.x + ((2 * entityTwoMass) / (entityOneMass + entityTwoMass)) * entityTwoInitialVelocity.x;
+            entityOne.transformation.velocity.y = ((entityOneMass - entityTwoMass) / (entityOneMass + entityTwoMass)) * entityOneInitialVelocity.y + ((2 * entityTwoMass) / (entityOneMass + entityTwoMass)) * entityTwoInitialVelocity.y;
         }
+    }
+
+
+    private static areColliding(objectOne: Entity, objectTwo: Entity) {
+        return objectOne.transformation.position.y < objectTwo.transformation.position.y + objectTwo.appearance.height
+            && objectOne.transformation.position.y + objectOne.appearance.height > objectTwo.transformation.position.y
+            && objectOne.transformation.position.x < objectTwo.transformation.position.x + objectTwo.appearance.width
+            && objectOne.transformation.position.x + objectOne.appearance.width > objectTwo.transformation.position.x;
     }
 }

@@ -5,7 +5,7 @@ class Transformation {
     public physics: Physics;
     public position: Vector;
     public velocity: Vector;
-    private mass: number;
+    public mass: number;
 
     constructor(physics: Physics, position: Vector, mass: number) {
         this.physics = physics;
