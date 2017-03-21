@@ -17,7 +17,7 @@ class ObjectManager {
     private box: SceneObject;
 
     constructor() {
-        var spriteData: SpriteData = {
+        let spriteData: SpriteData = {
             picture: new Picture("./assets/sampleAsset.png"),
             height: 65,
             width: 65,

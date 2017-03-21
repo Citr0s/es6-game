@@ -7,7 +7,7 @@ class Transformation {
     public velocity: Vector;
     private mass: number;
 
-    constructor(physics:Physics, position:Vector, mass:number) {
+    constructor(physics: Physics, position: Vector, mass: number) {
         this.physics = physics;
         this.physics.updateForce("GRAVITY", new Vector(0, 98 * mass));
         this.position = position;
@@ -15,7 +15,7 @@ class Transformation {
         this.mass = mass;
     }
 
-    update(delta:number) {
+    update(delta: number) {
         let force = this.physics.calculateTotalForce();
         let acceleration = new Vector(force.x / this.mass, force.y / this.mass);
         acceleration.multiply(delta);

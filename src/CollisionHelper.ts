@@ -1,7 +1,7 @@
 /// <reference path="./Vector"/>
 
 class CollisionHelper {
-    static collideWithCanvasBoundaries(object:Entity, boundaries:HTMLCanvasElement) {
+    static collideWithCanvasBoundaries(object: Entity, boundaries: HTMLCanvasElement) {
         if (object.transformation.position.y + object.appearance.height > boundaries.height) {
             object.transformation.position.y = boundaries.height - object.appearance.height;
             object.transformation.velocity.y = 0;
@@ -21,7 +21,7 @@ class CollisionHelper {
         }
     }
 
-    static collide(player:Entity, box:Entity) {
+    static collide(player: Entity, box: Entity) {
         if (player.transformation.position.y < box.transformation.position.y + box.appearance.height
             && player.transformation.position.y + player.appearance.height > box.transformation.position.y
             && player.transformation.position.x < box.transformation.position.x + box.appearance.width

@@ -2,6 +2,7 @@
 
 class Physics {
     public forces: any;
+
     constructor() {
         this.forces = {
             KINETIC_HORIZONTAL: new Vector(0, 0),
@@ -10,7 +11,7 @@ class Physics {
         };
     }
 
-    updateForce(key:string, force:Vector) {
+    updateForce(key: string, force: Vector) {
         this.forces[key] = force;
     }
 

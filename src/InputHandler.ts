@@ -1,4 +1,4 @@
-let pressedCharacter:string[] = [];
+let pressedCharacter: string[] = [];
 
 class InputHandler {
     static inititialise() {
@@ -6,21 +6,21 @@ class InputHandler {
         document.addEventListener('keyup', InputHandler.resetCharacter);
     }
 
-    static setCharacter(e:any) {
-        if(pressedCharacter.indexOf(e.key.toLowerCase()) > -1)
+    static setCharacter(e: any) {
+        if (pressedCharacter.indexOf(e.key.toLowerCase()) > -1)
             return;
 
         pressedCharacter.push(e.key.toLowerCase());
     }
 
-    static resetCharacter(e:any) {
-        if(pressedCharacter.indexOf(e.key.toLowerCase()) === -1)
+    static resetCharacter(e: any) {
+        if (pressedCharacter.indexOf(e.key.toLowerCase()) === -1)
             return;
 
         pressedCharacter.splice(pressedCharacter.indexOf(e.key.toLowerCase()), 1);
     }
 
-    static checkKey(character:string) {
+    static checkKey(character: string) {
         return pressedCharacter.indexOf(character.toLowerCase()) !== -1;
     }
 }

@@ -1,12 +1,12 @@
-class Picture{
+class Picture {
     public image: HTMLImageElement;
 
-    constructor(path: string){
+    constructor(path: string) {
         this.image = new Image();
         this.image.src = path;
     }
 
-    public toImage(){
+    public toImage() {
         return this.image;
     }
 }
