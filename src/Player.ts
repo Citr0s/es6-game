@@ -5,7 +5,6 @@
 class Player implements Entity {
     public transformation: Transformation;
     public appearance: IAppearance;
-    private direction: number;
 
     constructor(transformation: Transformation, appearance: IAppearance) {
         this.transformation = transformation;
