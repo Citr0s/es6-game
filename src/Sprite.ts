@@ -16,8 +16,8 @@ class Sprite {
         this.width = spriteData.width;
         this.direction = spriteData.direction;
         this.animationCycle = spriteData.animationCycle;
-        this.currentAnimationTick = spriteData.currentAnimationTick;
-        this.currentFrame = spriteData.currentFrame;
+        this.currentAnimationTick = 0;
+        this.currentFrame = 0;
         this.frameCount = spriteData.frameCount;
     }
 

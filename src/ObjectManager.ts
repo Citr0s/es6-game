@@ -23,8 +23,6 @@ class ObjectManager {
             width: 65,
             direction: 0,
             animationCycle: 1,
-            currentAnimationTick: 0,
-            currentFrame: 0,
             frameCount: 8
         };
 
