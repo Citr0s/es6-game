@@ -4,17 +4,23 @@ class TransformSystem implements ISystem {
             let entity = entities[key];
 
             if (entity.hasComponent(ComponentType.TRANSFORM)) {
-                let component = <TransformComponent>entity.getComponent(ComponentType.TRANSFORM);
-                let force = component.physics.calculateTotalForce();
-                let acceleration = new Vector(force.x / component.mass, force.y / component.mass);
-                acceleration.multiply(delta);
+                let transform = <TransformComponent>entity.getComponent(ComponentType.TRANSFORM);
 
-                component.velocity.add(acceleration);
+                let acceleration = new Vector(0, 0);
 
-                component.position.x += component.velocity.x * delta + 0.5 * acceleration.x * Math.pow(delta, 2);
-                component.position.y += component.velocity.y * delta + 0.5 * acceleration.y * Math.pow(delta, 2);
+                if (entity.hasComponent(ComponentType.PHYSICS)) {
+                    let physics = <PhysicsComponent>entity.getComponent(ComponentType.PHYSICS);
+                    let force = physics.netForce;
+                    acceleration = new Vector(force.x / transform.mass, force.y / transform.mass);
+                    acceleration.multiply(delta);
+                }
 
-                component.initialVelocity = component.velocity;
+                transform.velocity.add(acceleration);
+
+                transform.position.x += transform.velocity.x * delta + 0.5 * acceleration.x * Math.pow(delta, 2);
+                transform.position.y += transform.velocity.y * delta + 0.5 * acceleration.y * Math.pow(delta, 2);
+
+                transform.initialVelocity = transform.velocity;
             }
         }
     }

@@ -14,6 +14,7 @@
 ///<reference path="SceneObjects/Entity.ts"/>
 ///<reference path="SceneObjects/Components/TransformComponent.ts"/>
 ///<reference path="SceneObjects/Components/AppearanceComponent.ts"/>
+///<reference path="SceneObjects/Systems/PhysicsSystem.ts"/>
 
 let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById('canvas');
 
@@ -35,13 +36,13 @@ class ObjectManager {
         this.objects.push(new Player(new Transformation(new Physics(), new Vector(100, 100), 1), new SpriteAppearance(new Sprite(spriteData), 50, 50)));
         this.objects.push(new SceneObject(new Transformation(new Physics(), new Vector(canvas.width / 2, canvas.height - 150), 100), new Appearance(150, 150)));
 
+        this.systems.push(new PhysicsSystem());
         this.systems.push(new TransformSystem());
         this.systems.push(new RenderSystem());
 
         let entity = new Entity();
         let transformData: TransformComponent = {
             name: ComponentType.TRANSFORM,
-            physics: new Physics(),
             position: new Vector(canvas.width / 2 - 50, canvas.height - 450),
             initialVelocity: new Vector(0, 0),
             velocity: new Vector(0, 0),
@@ -57,6 +58,18 @@ class ObjectManager {
         };
 
         entity.addComponent(appearanceData);
+
+        let physicsData: PhysicsComponent = {
+            name: ComponentType.PHYSICS,
+            forces: {
+                KINETIC_HORIZONTAL: new Vector(0, 0),
+                KINETIC_VERTICAL: new Vector(0, 0),
+                GRAVITY: new Vector(0, 98 * transformData.mass)
+            },
+            netForce: new Vector(0, 0)
+        };
+
+        entity.addComponent(physicsData);
 
         this.entities.push(entity);
     }
