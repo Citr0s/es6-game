@@ -2,7 +2,7 @@
 /// <reference path="./Vector"/>
 /// <reference path="./InputMappings"/>
 
-class Player implements Entity {
+class Player implements Object {
     public transformation: Transformation;
     public appearance: IAppearance;
     public isColliding: boolean;

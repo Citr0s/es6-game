@@ -1,7 +1,7 @@
 /// <reference path="./Transformation"/>
 /// <reference path="./Appearance"/>
 
-class SceneObject implements Entity {
+class SceneObject implements Object {
     public transformation: Transformation;
     public appearance: Appearance;
     public isColliding: boolean;
