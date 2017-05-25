@@ -5,6 +5,8 @@ node_js:
 
 notifications:
   email: false
+  webhooks:
+    - https://ci.miloszdura.com/deploy/game
 
 script:
   - gulp build
