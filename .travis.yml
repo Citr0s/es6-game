@@ -7,6 +7,9 @@ notifications:
   email: false
   webhooks:
     - https://ci.miloszdura.com/deploy/game
+    on_start: always
+    on_success: always
+    on_failure: always
 
 script:
   - gulp build
