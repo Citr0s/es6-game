@@ -6,6 +6,7 @@ node_js:
 notifications:
   email: false
   webhooks:
+    urls:
     - https://ci.miloszdura.com/deploy/game
     on_start: always
     on_success: always
