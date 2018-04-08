@@ -11,14 +11,6 @@ class TransformSystem implements ISystem {
                 if (entity.hasComponent(ComponentType.PHYSICS)) {
                     let physics = <PhysicsComponent>entity.getComponent(ComponentType.PHYSICS);
 
-                    let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById('canvas');
-                    let appearance = <AppearanceComponent>entity.getComponent(ComponentType.APPEARANCE);
-
-                    if (transform.position.y > (canvas.height - appearance.height)) {
-                        physics.forces['KINETIC_VERTICAL'] = new Vector(-physics.forces['GRAVITY'].x, -physics.forces['GRAVITY'].y);
-                        transform.velocity = new Vector(0, 0);
-                    }
-
                     let force = physics.netForce;
                     acceleration = new Vector(force.x / transform.mass, force.y / transform.mass);
                     acceleration.multiply(delta);

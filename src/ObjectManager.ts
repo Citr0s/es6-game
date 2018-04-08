@@ -14,7 +14,9 @@
 ///<reference path="SceneObjects/Entity.ts"/>
 ///<reference path="SceneObjects/Components/TransformComponent.ts"/>
 ///<reference path="SceneObjects/Components/AppearanceComponent.ts"/>
+///<reference path="SceneObjects/Components/CollisionComponent.ts"/>
 ///<reference path="SceneObjects/Systems/PhysicsSystem.ts"/>
+///<reference path="SceneObjects/Systems/CollisionSystem.ts"/>
 
 let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById('canvas');
 
@@ -38,6 +40,7 @@ class ObjectManager {
         this.systems.push(new PhysicsSystem());
         this.systems.push(new TransformSystem());
         this.systems.push(new RenderSystem());
+        this.systems.push(new CollisionSystem());
 
         this.entities.push(this.generateNewEntity(new Vector(canvas.width / 2 - 50, canvas.height - 450), 150, 150));
         this.entities.push(this.generateNewEntity(new Vector(canvas.width / 2, canvas.height - 150), 150, 150));
@@ -90,6 +93,12 @@ class ObjectManager {
         };
 
         entity.addComponent(appearanceData);
+
+        let collisionData: CollisionComponent = {
+            name: ComponentType.COLLISION
+        };
+
+        entity.addComponent(collisionData);
 
         let physicsData: PhysicsComponent = {
             name: ComponentType.PHYSICS,

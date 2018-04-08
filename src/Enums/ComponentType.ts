@@ -1,5 +1,6 @@
 enum ComponentType{
     TRANSFORM,
     APPEARANCE,
-    PHYSICS
+    PHYSICS,
+    COLLISION
 }

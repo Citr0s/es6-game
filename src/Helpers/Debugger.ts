@@ -5,7 +5,7 @@ class Debugger {
     private debugCooldown: number;
 
     constructor() {
-        debugEnabled = false;
+        debugEnabled = true;
         this.debugCooldown = 0.2;
     }
 
