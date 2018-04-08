@@ -11,7 +11,7 @@ class CollisionSystem implements ISystem {
                 let appearance = <AppearanceComponent>entity.getComponent(ComponentType.APPEARANCE);
                 let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById('canvas');
 
-                collision.isColliding = this.checkForCollisionsWithBoundries(transform, appearance, canvas.height, canvas.width);
+                collision.isColliding = this.checkForCollisionsWithBoundaries(transform, appearance, canvas.height, canvas.width);
             }
         }
     }
@@ -19,10 +19,10 @@ class CollisionSystem implements ISystem {
     draw(entities: Entity[]): void {
     }
 
-    checkForCollisionsWithBoundries(transformation: TransformComponent, appearance: AppearanceComponent, boundryHeight: number, boundryWidth: number): boolean {
+    checkForCollisionsWithBoundaries(transformation: TransformComponent, appearance: AppearanceComponent, boundaryHeight: number, boundaryWidth: number): boolean {
         let isColliding = false;
-        if (transformation.position.y + appearance.height > boundryHeight) {
-            transformation.position.y = boundryHeight - appearance.height;
+        if (transformation.position.y + appearance.height > boundaryHeight) {
+            transformation.position.y = boundaryHeight - appearance.height;
             transformation.velocity.y = 0;
             isColliding = true;
         }
@@ -31,8 +31,8 @@ class CollisionSystem implements ISystem {
             transformation.velocity.y = 0;
         }
 
-        if (transformation.position.x + appearance.width > boundryWidth) {
-            transformation.position.x = boundryWidth - appearance.width;
+        if (transformation.position.x + appearance.width > boundaryWidth) {
+            transformation.position.x = boundaryWidth - appearance.width;
             transformation.velocity.x = 0;
         }
         else if (transformation.position.x < 0) {
