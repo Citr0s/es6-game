@@ -1,6 +1,7 @@
-enum ComponentType{
+enum ComponentType {
     TRANSFORM,
     APPEARANCE,
     PHYSICS,
-    COLLISION
+    COLLISION,
+    MOVEMENT
 }

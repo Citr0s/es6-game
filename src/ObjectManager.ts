@@ -15,8 +15,10 @@
 ///<reference path="SceneObjects/Components/TransformComponent.ts"/>
 ///<reference path="SceneObjects/Components/AppearanceComponent.ts"/>
 ///<reference path="SceneObjects/Components/CollisionComponent.ts"/>
+///<reference path="SceneObjects/Components/MovementComponent.ts"/>
 ///<reference path="SceneObjects/Systems/PhysicsSystem.ts"/>
 ///<reference path="SceneObjects/Systems/CollisionSystem.ts"/>
+///<reference path="SceneObjects/Systems/MovementSystem.ts"/>
 
 let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById('canvas');
 
@@ -41,9 +43,11 @@ class ObjectManager {
         this.systems.push(new TransformSystem());
         this.systems.push(new RenderSystem());
         this.systems.push(new CollisionSystem());
+        this.systems.push(new MovementSystem());
 
-        this.entities.push(this.generateNewEntity(new Vector(canvas.width / 2 - 50, canvas.height - 450), 150, 150));
-        this.entities.push(this.generateNewEntity(new Vector(canvas.width / 2, canvas.height - 150), 150, 150));
+        this.entities.push(this.generateNewEntity(new Vector(canvas.width / 2 - 50, canvas.height - 450), 150, 150, 10));
+        this.entities.push(this.generateNewEntity(new Vector(canvas.width / 2, canvas.height - 150), 150, 150, 10));
+        this.entities.push(this.generateNewEntity(new Vector(100, 100), 150, 150, 1, true));
     }
 
     update(delta: number) {
@@ -74,14 +78,14 @@ class ObjectManager {
         }
     }
 
-    generateNewEntity(position: Vector, height: number, width: number) {
+    generateNewEntity(position: Vector, height: number, width: number, mass, isControllable) {
         let entity = new Entity();
         let transformData: TransformComponent = {
             name: ComponentType.TRANSFORM,
             position: position,
             initialVelocity: new Vector(0, 0),
             velocity: new Vector(0, 0),
-            mass: 10
+            mass: mass
         };
 
         entity.addComponent(transformData);
@@ -111,6 +115,14 @@ class ObjectManager {
         };
 
         entity.addComponent(physicsData);
+
+        if (isControllable) {
+            let movementData: MovementComponent = {
+                name: ComponentType.MOVEMENT
+            };
+
+            entity.addComponent(movementData);
+        }
 
         return entity;
     }
