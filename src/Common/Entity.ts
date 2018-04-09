@@ -1,5 +1,5 @@
-///<reference path="./Components/IComponent.ts"/>
-///<reference path="../Enums/ComponentType.ts"/>
+///<reference path="../Components/IComponent.ts"/>
+///<reference path="./ComponentType.ts"/>
 
 class Entity {
     public components: IComponent[] = Array();

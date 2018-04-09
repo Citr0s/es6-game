@@ -1,4 +1,4 @@
-/// <reference path="../src/Vector"/>
+/// <reference path="../src/Common/Vector"/>
 
 describe('Vector', function () {
 

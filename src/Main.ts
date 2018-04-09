@@ -1,9 +1,9 @@
-/// <reference path="./InputHandler"/>
-/// <reference path="./Timer"/>
-/// <reference path="./Renderer"/>
-/// <reference path="./FramesPerSecond"/>
-/// <reference path="./ObjectManager"/>
-///<reference path="Helpers/Debugger.ts"/>
+/// <reference path="./Common/InputHandler"/>
+/// <reference path="./Common/Timer"/>
+/// <reference path="./Common/Renderer"/>
+/// <reference path="./Common/FramesPerSecond"/>
+/// <reference path="./Common/ObjectManager"/>
+///<reference path="Common/Helpers/Debugger.ts"/>
 
 InputHandler.inititialise();
 Renderer.inititialise();

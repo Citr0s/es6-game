@@ -1,17 +1,17 @@
 /// <reference path="./Helpers/Picture"/>
 /// <reference path="./Vector"/>
-///<reference path="SceneObjects/Systems/TransformSystem.ts"/>
-///<reference path="SceneObjects/Systems/RenderSystem.ts"/>
-///<reference path="SceneObjects/Entity.ts"/>
-///<reference path="SceneObjects/Components/TransformComponent.ts"/>
-///<reference path="SceneObjects/Components/AppearanceComponent.ts"/>
-///<reference path="SceneObjects/Components/CollisionComponent.ts"/>
-///<reference path="SceneObjects/Components/MovementComponent.ts"/>
-///<reference path="SceneObjects/Components/SpriteComponent.ts"/>
-///<reference path="SceneObjects/Systems/PhysicsSystem.ts"/>
-///<reference path="SceneObjects/Systems/CollisionSystem.ts"/>
-///<reference path="SceneObjects/Systems/MovementSystem.ts"/>
-///<reference path="SceneObjects/Systems/SpriteSystem.ts"/>
+///<reference path="../Systems/TransformSystem.ts"/>
+///<reference path="../Systems/RenderSystem.ts"/>
+///<reference path="Entity.ts"/>
+///<reference path="../Components/TransformComponent.ts"/>
+///<reference path="../Components/AppearanceComponent.ts"/>
+///<reference path="../Components/CollisionComponent.ts"/>
+///<reference path="../Components/MovementComponent.ts"/>
+///<reference path="../Components/SpriteComponent.ts"/>
+///<reference path="../Systems/PhysicsSystem.ts"/>
+///<reference path="../Systems/CollisionSystem.ts"/>
+///<reference path="../Systems/MovementSystem.ts"/>
+///<reference path="../Systems/SpriteSystem.ts"/>
 
 let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById('canvas');
 

@@ -1,0 +1,5 @@
+enum ForceType{
+    KINETIC_HORIZONTAL,
+    KINETIC_VERTICAL,
+    GRAVITY
+}
