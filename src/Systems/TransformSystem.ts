@@ -5,7 +5,6 @@ class TransformSystem implements ISystem {
 
             if (entity.hasComponent(ComponentType.TRANSFORM)) {
                 let transform = <TransformComponent>entity.getComponent(ComponentType.TRANSFORM);
-
                 let acceleration = new Vector(0, 0);
 
                 if (entity.hasComponent(ComponentType.PHYSICS)) {
@@ -17,10 +16,8 @@ class TransformSystem implements ISystem {
                 }
 
                 transform.velocity.add(acceleration);
-
                 transform.position.x += transform.velocity.x * delta + 0.5 * acceleration.x * Math.pow(delta, 2);
                 transform.position.y += transform.velocity.y * delta + 0.5 * acceleration.y * Math.pow(delta, 2);
-
                 transform.initialVelocity = transform.velocity;
             }
         }

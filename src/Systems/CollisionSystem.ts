@@ -26,7 +26,7 @@ class CollisionSystem implements ISystem {
     draw(entities: Entity[]): void {
     }
 
-    private collide(entityOne: Entity, entityTwo: Entity) {
+    private collide(entityOne: Entity, entityTwo: Entity): void {
         let transformEntityOne = <TransformComponent>entityOne.getComponent(ComponentType.TRANSFORM);
         let transformEntityTwo = <TransformComponent>entityTwo.getComponent(ComponentType.TRANSFORM);
 
@@ -41,7 +41,7 @@ class CollisionSystem implements ISystem {
         }
     }
 
-    private areColliding(entityOne: Entity, entityTwo: Entity) {
+    private areColliding(entityOne: Entity, entityTwo: Entity): boolean {
         let transformEntityOne = <TransformComponent>entityOne.getComponent(ComponentType.TRANSFORM);
         let appearanceEntityOne = <AppearanceComponent>entityOne.getComponent(ComponentType.APPEARANCE);
         let transformEntityTwo = <TransformComponent>entityTwo.getComponent(ComponentType.TRANSFORM);

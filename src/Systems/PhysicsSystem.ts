@@ -7,7 +7,6 @@ class PhysicsSystem implements ISystem {
 
             if (entity.hasComponent(ComponentType.PHYSICS)) {
                 let component = <PhysicsComponent>entity.getComponent(ComponentType.PHYSICS);
-
                 let totalForce = new Vector(0, 0);
 
                 for (let forceKey in component.forces) {
