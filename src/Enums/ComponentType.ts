@@ -3,5 +3,6 @@ enum ComponentType {
     APPEARANCE,
     PHYSICS,
     COLLISION,
-    MOVEMENT
+    MOVEMENT,
+    SPRITE
 }

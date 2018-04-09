@@ -16,55 +16,34 @@
 ///<reference path="SceneObjects/Components/AppearanceComponent.ts"/>
 ///<reference path="SceneObjects/Components/CollisionComponent.ts"/>
 ///<reference path="SceneObjects/Components/MovementComponent.ts"/>
+///<reference path="SceneObjects/Components/SpriteComponent.ts"/>
 ///<reference path="SceneObjects/Systems/PhysicsSystem.ts"/>
 ///<reference path="SceneObjects/Systems/CollisionSystem.ts"/>
 ///<reference path="SceneObjects/Systems/MovementSystem.ts"/>
+///<reference path="SceneObjects/Systems/SpriteSystem.ts"/>
 
 let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById('canvas');
 
 class ObjectManager {
-    private objects: Object[] = Array();
     private entities: Entity[] = Array();
     private systems: ISystem[] = Array();
 
     constructor() {
-        let spriteData: SpriteData = {
-            picture: new Picture("./assets/sampleAsset.png"),
-            height: 65,
-            width: 65,
-            direction: 0,
-            animationCycle: 1,
-            frameCount: 8
-        };
-
-        this.objects.push(new Player(new Transformation(new Physics(), new Vector(100, 100), 1), new SpriteAppearance(new Sprite(spriteData), 50, 50)));
-
         this.systems.push(new PhysicsSystem());
         this.systems.push(new TransformSystem());
         this.systems.push(new RenderSystem());
         this.systems.push(new CollisionSystem());
         this.systems.push(new MovementSystem());
+        this.systems.push(new SpriteSystem());
 
-        this.entities.push(this.generateNewEntity(new Vector(canvas.width / 2 - 50, canvas.height - 450), 150, 150, 10));
-        this.entities.push(this.generateNewEntity(new Vector(canvas.width / 2, canvas.height - 150), 150, 150, 10));
-        this.entities.push(this.generateNewEntity(new Vector(100, 100), 150, 150, 1, true));
+        this.entities.push(this.generateNewEntity(new Vector(canvas.width / 2 - 50, canvas.height - 450), 150, 150, 10, false, false));
+        this.entities.push(this.generateNewEntity(new Vector(canvas.width / 2, canvas.height - 150), 150, 150, 10, false, false));
+        this.entities.push(this.generateNewEntity(new Vector(100, 100), 50, 50, 1, true, true, 50, 50));
     }
 
     update(delta: number) {
         for (let key in this.systems) {
             this.systems[key].update(this.entities, delta);
-        }
-
-        for (let key in this.objects) {
-            for (let i = 0; i < this.objects.length; i++) {
-                if (i === parseInt(key))
-                    continue;
-
-                CollisionHelper.collide(this.objects[key], this.objects[i]);
-            }
-
-            CollisionHelper.collideWithCanvasBoundaries(this.objects[key], canvas);
-            this.objects[key].update(delta);
         }
     }
 
@@ -72,13 +51,9 @@ class ObjectManager {
         for (let key in this.systems) {
             this.systems[key].draw(this.entities);
         }
-
-        for (let key in this.objects) {
-            this.objects[key].draw();
-        }
     }
 
-    generateNewEntity(position: Vector, height: number, width: number, mass, isControllable) {
+    generateNewEntity(position: Vector, height: number, width: number, mass, isControllable: boolean, hasSprite: boolean) {
         let entity = new Entity();
         let transformData: TransformComponent = {
             name: ComponentType.TRANSFORM,
@@ -99,7 +74,8 @@ class ObjectManager {
         entity.addComponent(appearanceData);
 
         let collisionData: CollisionComponent = {
-            name: ComponentType.COLLISION
+            name: ComponentType.COLLISION,
+            isColliding: false
         };
 
         entity.addComponent(collisionData);
@@ -122,6 +98,22 @@ class ObjectManager {
             };
 
             entity.addComponent(movementData);
+        }
+
+        if (hasSprite) {
+            let spriteData: SpriteComponent = {
+                name: ComponentType.SPRITE,
+                picture: new Picture("./assets/sampleAsset.png"),
+                height: 65,
+                width: 65,
+                direction: 0,
+                animationCycle: 1,
+                frameCount: 8,
+                currentAnimationTick: 0,
+                currentFrame: 0
+            };
+
+            entity.addComponent(spriteData);
         }
 
         return entity;
