@@ -19,7 +19,7 @@ class MovementSystem implements ISystem {
                     physics.forces["KINETIC_HORIZONTAL"] = new Vector(-500, 0);
 
                 if (InputHandler.checkKey(InputMappings.MOVE_UP()) && collision.isColliding)
-                    physics.forces["KINETIC_VERTICAL"] = new Vector(0, -7500);
+                    physics.forces["KINETIC_VERTICAL"] = new Vector(0, -80000);
 
                 if (InputHandler.checkKey(InputMappings.MOVE_DOWN()))
                     physics.forces["KINETIC_VERTICAL"] = new Vector(0, 500);

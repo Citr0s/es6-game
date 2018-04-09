@@ -38,7 +38,7 @@ class ObjectManager {
 
         this.entities.push(this.generateNewEntity(new Vector(canvas.width / 2 - 50, canvas.height - 450), 150, 150, 10, false, false));
         this.entities.push(this.generateNewEntity(new Vector(canvas.width / 2, canvas.height - 150), 150, 150, 10, false, false));
-        this.entities.push(this.generateNewEntity(new Vector(100, 100), 50, 50, 1, true, true, 50, 50));
+        this.entities.push(this.generateNewEntity(new Vector(100, 100), 50, 50, 1, true, true));
     }
 
     update(delta: number) {
@@ -53,7 +53,7 @@ class ObjectManager {
         }
     }
 
-    generateNewEntity(position: Vector, height: number, width: number, mass, isControllable: boolean, hasSprite: boolean) {
+    generateNewEntity(position: Vector, height: number, width: number, mass: number, isControllable: boolean, hasSprite: boolean) {
         let entity = new Entity();
         let transformData: TransformComponent = {
             name: ComponentType.TRANSFORM,
@@ -85,7 +85,7 @@ class ObjectManager {
             forces: {
                 KINETIC_HORIZONTAL: new Vector(0, 0),
                 KINETIC_VERTICAL: new Vector(0, 0),
-                GRAVITY: new Vector(0, 98 * transformData.mass)
+                GRAVITY: new Vector(0, 1000 * transformData.mass)
             },
             netForce: new Vector(0, 0)
         };
