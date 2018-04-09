@@ -1,4 +1,4 @@
-///<reference path="../Interfaces/IComponent.ts"/>
+///<reference path="./Components/IComponent.ts"/>
 ///<reference path="../Enums/ComponentType.ts"/>
 
 class Entity {

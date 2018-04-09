@@ -1,14 +1,5 @@
-/// <reference path="./Player"/>
-/// <reference path="./Transformation"/>
-/// <reference path="./Appearance"/>
-/// <reference path="./SpriteAppearance"/>
 /// <reference path="./Helpers/Picture"/>
-/// <reference path="./Sprite"/>
-/// <reference path="./Physics"/>
 /// <reference path="./Vector"/>
-/// <reference path="./CollisionHelper"/>
-/// <reference path="./SceneObject"/>
-/// <reference path="Object/Models/SpriteData.ts"/>
 ///<reference path="SceneObjects/Systems/TransformSystem.ts"/>
 ///<reference path="SceneObjects/Systems/RenderSystem.ts"/>
 ///<reference path="SceneObjects/Entity.ts"/>

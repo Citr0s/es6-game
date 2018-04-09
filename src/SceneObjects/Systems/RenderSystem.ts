@@ -1,4 +1,4 @@
-///<reference path="../../Interfaces/ISystem.ts"/>
+///<reference path="./ISystem.ts"/>
 
 class RenderSystem implements ISystem {
     update(entities: Entity[], delta: number): void {

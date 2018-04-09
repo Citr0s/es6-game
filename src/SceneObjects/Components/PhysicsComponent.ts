@@ -1,4 +1,4 @@
-///<reference path="../../Interfaces/IComponent.ts"/>
+///<reference path="./IComponent.ts"/>
 ///<reference path="../../Vector.ts"/>
 ///<reference path="../../Enums/ComponentType.ts"/>
 

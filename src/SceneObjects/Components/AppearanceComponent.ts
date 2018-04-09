@@ -1,4 +1,4 @@
-///<reference path="../../Interfaces/IComponent.ts"/>
+///<reference path="./IComponent.ts"/>
 
 class AppearanceComponent implements IComponent {
     public name: ComponentType;

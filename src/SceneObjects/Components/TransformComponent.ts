@@ -1,4 +1,4 @@
-///<reference path="../../Interfaces/IComponent.ts"/>
+///<reference path="./IComponent.ts"/>
 
 class TransformComponent implements IComponent {
     public name: ComponentType;
